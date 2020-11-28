@@ -1,0 +1,46 @@
+.grid-masonry-item {
+  position: relative;
+
+  .like,
+  .zoom {
+    width: 34px;
+    height: 34px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 15px;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+  }
+
+  &:hover {
+    .like,
+    .zoom {
+      display: inline-flex;
+    }
+  }
+
+  .like {
+    left: 15px;
+
+    &::before {
+      content: "🤍";
+    }
+
+    &.liked {
+      &::before {
+        content: "❤️";
+      }
+    }
+  }
+
+  .zoom {
+    right: 15px;
+
+    &::before {
+      content: "🔍";
+    }
+  }
+}
