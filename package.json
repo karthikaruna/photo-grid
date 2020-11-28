@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.29.0"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
