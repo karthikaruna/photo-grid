@@ -1,4 +1,7 @@
 import NetworkStuff from '../services/network-stuff';
+import Photo from './photo';
+
+function onZoom(photo) { }
 
 async function getPhotos(page) {
   try {
@@ -10,21 +13,12 @@ async function getPhotos(page) {
 
 export default class {
   static async render(base) {
-    this.base = base;
-
     const photos = await getPhotos(1),
       container = document.createElement('div');
 
     container.classList.add('grid-masonry');
 
-    photos.forEach(photo => {
-      console.log(photo);
-      container.insertAdjacentHTML('beforeend', `
-        <div class="grid-masonry-item">
-          <img width="${photo.width}" height="${photo.height}" src="${photo.urls.thumb}">
-        </div>
-      `);
-    });
-    this.base.insertAdjacentElement('beforeend', container);
+    photos.forEach(photo => Photo.render(container, { photo, onZoom }));
+    base.appendChild(container);
   }
 };
