@@ -1,3 +1,3 @@
 import GridMasonry from './utils/grid-masonry';
 
-new GridMasonry(document.querySelector('.grid-masonry'));
+GridMasonry.init(document.querySelector('.grid-masonry'));

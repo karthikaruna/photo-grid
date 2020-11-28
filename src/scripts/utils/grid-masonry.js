@@ -128,7 +128,7 @@ function removeEventListeners() {
 };
 
 export default class GridMasonry {
-  constructor(target) {
+  static init(target) {
     _target = target;
     setup(target);
     setHeight(target);
