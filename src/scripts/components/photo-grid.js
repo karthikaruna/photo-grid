@@ -5,17 +5,9 @@ import setupInfiniteScroll from '../utils/infinite-scroll';
 
 function onZoom(photo) { }
 
-async function getPhotos(page) {
-  try {
-    return await NetworkStuff.getPhotos(page);
-  } catch (exception) {
-    console.error('Error getting photos.', exception);
-  }
-}
-
 export default class {
   static async render(base) {
-    const photos = await getPhotos(1),
+    const photos = await NetworkStuff.getPhotos(1),
       container = document.createElement('div');
 
     container.classList.add('grid-masonry');
@@ -28,7 +20,7 @@ export default class {
   }
 
   static async loadMore(page) {
-    const photos = await getPhotos(page),
+    const photos = await NetworkStuff.getPhotos(page),
       photoFragment = document.createDocumentFragment();
 
     photos.forEach(photo => Photo.render(photoFragment, { photo, onZoom }));

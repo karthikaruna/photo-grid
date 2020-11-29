@@ -83,12 +83,7 @@ function setHeight(target) {
 };
 
 function addEventListeners() {
-  window.addEventListener('load', onLoad);
   window.addEventListener('resize', onResize);
-};
-
-function onLoad() {
-  setHeight(_target);
 };
 
 function onResize() {
@@ -123,7 +118,6 @@ function destroy() {
 };
 
 function removeEventListeners() {
-  window.removeEventListener('load', onLoad);
   window.removeEventListener('resize', onResize);
 };
 
