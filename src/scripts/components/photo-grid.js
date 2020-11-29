@@ -18,8 +18,8 @@ export default class PhotoGrid {
 
     // reset
     document.body.scrollTop = document.documentElement.scrollTop = 0;
-    base.querySelector('.grid-masonry')?.remove();
-    _infiniteScroller?.disconnect();
+    base.querySelector('.grid-masonry') && base.querySelector('.grid-masonry').remove();
+    _infiniteScroller && _infiniteScroller.disconnect();
 
     _searchTerm = searchTerm;
 
