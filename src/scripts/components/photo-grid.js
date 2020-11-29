@@ -13,12 +13,22 @@ export default class PhotoGrid {
     let photos,
       totalPages;
 
+    // reset
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    base.querySelector('.grid-masonry')?.remove();
+    _infiniteScroller?.disconnect();
+
     _searchTerm = searchTerm;
 
     if (_searchTerm) {
       const response = await NetworkStuff.searchPhotos(_searchTerm, 1);
 
       photos = response.results;
+      if (!photos.length) {
+        alert('No results found!');
+        return;
+      }
+
       totalPages = response.total_pages;
     } else {
       photos = await NetworkStuff.getPhotos(1);
@@ -27,15 +37,10 @@ export default class PhotoGrid {
     const container = document.createElement('div');
 
     container.classList.add('grid-masonry');
-
     photos.forEach(photo => Photo.render(container, { photo, onZoom }));
-
-    base.querySelector('.grid-masonry')?.remove();
     base.appendChild(container);
-
     GridMasonry.init(container);
 
-    _infiniteScroller?.disconnect();
     _infiniteScroller = setupInfiniteScroll(base, 1, totalPages, PhotoGrid.loadMore);
   }
 
@@ -44,9 +49,7 @@ export default class PhotoGrid {
     let photos;
 
     if (_searchTerm) {
-      const response = await NetworkStuff.searchPhotos(_searchTerm, page);
-
-      photos = response.results;
+      photos = (await NetworkStuff.searchPhotos(_searchTerm, page)).results;
     } else {
       photos = await NetworkStuff.getPhotos(page);
     }
