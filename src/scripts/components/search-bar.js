@@ -8,7 +8,7 @@ export default class {
     input.setAttribute('placeholder', 'Search...');
     input.addEventListener('input', debounce(function () {
       onSearch(this.value);
-    }, 750));
+    }, 700));
 
     base.appendChild(input);
   }

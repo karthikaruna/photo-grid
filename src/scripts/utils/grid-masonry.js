@@ -133,8 +133,8 @@ export default class GridMasonry {
     setHeight(target);
     addEventListeners();
 
-    this.appendNewItems = appendNewItems;
-    this.refresh = refresh;
-    this.destroy = destroy;
+    GridMasonry.appendNewItems = appendNewItems;
+    GridMasonry.refresh = refresh;
+    GridMasonry.destroy = destroy;
   }
 };

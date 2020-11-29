@@ -14,4 +14,8 @@ export default class {
   static async getPhotos(page) {
     return getFromUnsplash(`photos?page=${page}&per_page=30`);
   }
+
+  static async searchPhotos(searchTerm, page) {
+    return getFromUnsplash(`search/photos?query=${searchTerm}&page=${page}&per_page=30`);
+  }
 }
