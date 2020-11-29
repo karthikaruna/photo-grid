@@ -6,6 +6,7 @@ export default class {
     container.classList.add('grid-masonry-item');
     container.insertAdjacentHTML('beforeend', `
       <img width="${photo.width}" height="${photo.height}"
+        loading="lazy"
         srcset="${photo.urls.thumb} 200w,
           ${photo.urls.small} 400w,
           ${photo.urls.regular} 1080w"
