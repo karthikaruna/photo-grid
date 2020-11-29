@@ -1,5 +1,7 @@
+import GridMasonry from '../utils/grid-masonry';
 import NetworkStuff from '../services/network-stuff';
 import Photo from './photo';
+import setupInfiniteScroll from '../utils/infinite-scroll';
 
 function onZoom(photo) { }
 
@@ -20,5 +22,16 @@ export default class {
 
     photos.forEach(photo => Photo.render(container, { photo, onZoom }));
     base.appendChild(container);
+
+    GridMasonry.init(container);
+    setupInfiniteScroll(base, 1, this.loadMore);
+  }
+
+  static async loadMore(page) {
+    const photos = await getPhotos(page),
+      photoFragment = document.createDocumentFragment();
+
+    photos.forEach(photo => Photo.render(photoFragment, { photo, onZoom }));
+    GridMasonry.appendNewItems(photoFragment);
   }
 };
