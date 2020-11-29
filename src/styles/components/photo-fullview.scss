@@ -1,0 +1,66 @@
+.photo-fullview {
+  width: 80%;
+  height: auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 100px 50px rgba(0, 0, 0, 0.75);
+  display: none;
+  z-index: 2;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &,
+  img {
+    border-radius: 5px;
+  }
+
+  &.open {
+    display: block;
+  }
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: white;
+  }
+}
+
+@media (orientation: landscape) {
+  .photo-fullview {
+    width: auto;
+    height: 80%;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
+body.photo-fullview-active {
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

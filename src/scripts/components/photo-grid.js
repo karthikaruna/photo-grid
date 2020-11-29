@@ -1,9 +1,12 @@
 import GridMasonry from '../utils/grid-masonry';
 import NetworkStuff from '../services/network-stuff';
 import Photo from './photo';
+import PhotoFullview from './photo-fullview';
 import setupInfiniteScroll from '../utils/infinite-scroll';
 
-function onZoom(photo) { }
+function onZoom(photo) {
+  PhotoFullview.open(photo);
+}
 
 let _searchTerm,
   _infiniteScroller;
