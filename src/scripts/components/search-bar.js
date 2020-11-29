@@ -6,6 +6,7 @@ export default class {
 
     input.setAttribute('type', 'search');
     input.setAttribute('placeholder', 'Search...');
+    input.setAttribute('aria-label', 'Search');
     input.addEventListener('input', debounce(function () {
       onSearch(this.value);
     }, 700));
