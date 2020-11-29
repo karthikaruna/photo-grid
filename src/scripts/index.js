@@ -3,6 +3,9 @@ import SearchBar from './components/search-bar';
 
 // bootstrap stuff
 (async function () {
-  SearchBar.render(document.querySelector('.search-bar'));
+  SearchBar.render(
+    document.querySelector('.search-bar'),
+    searchTerm => PhotoGrid.render(document.querySelector('.photo-grid'), searchTerm)
+  );
   await PhotoGrid.render(document.querySelector('.photo-grid'));
 })();
