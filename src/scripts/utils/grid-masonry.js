@@ -127,6 +127,11 @@ function removeEventListeners() {
   window.removeEventListener('resize', onResize);
 };
 
+function appendNewItems(newItems) {
+  _target.insertBefore(newItems, document.querySelector('.grid-masonry-break'));
+  refresh();
+}
+
 export default class GridMasonry {
   static init(target) {
     _target = target;
@@ -134,6 +139,7 @@ export default class GridMasonry {
     setHeight(target);
     addEventListeners();
 
+    this.appendNewItems = appendNewItems;
     this.refresh = refresh;
     this.destroy = destroy;
   }
