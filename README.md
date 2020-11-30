@@ -9,7 +9,7 @@
 
 ## How to run in dev mode?
 
-    cd signeasy-demo
+    cd photo-grid
     npm install
     npm run dev
 
@@ -17,7 +17,7 @@
 Any basic server should work. Following is an example with the package `http-server`.
 
     npm install -g http-server
-    cd signeasy-demo
+    cd photo-grid
     npm install
     npm run build
     http-server dist
