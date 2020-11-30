@@ -9,17 +9,15 @@
 
 ## How to run in dev mode?
 
-    npm install -g parcel-bundler
     cd signeasy-demo
-    parcel src/index.html
-
-## How to build for prod?
-
-    parcel build src/index.html
+    npm install
+    npm run dev
 
 ## How to run in prod mode?
 Any basic server should work. Following is an example with the package `http-server`.
 
     npm install -g http-server
     cd signeasy-demo
+    npm install
+    npm run build
     http-server dist
